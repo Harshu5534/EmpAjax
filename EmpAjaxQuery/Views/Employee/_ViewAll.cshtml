@@ -2,7 +2,11 @@
 
     <div class="col-md-8 offset-md-2">
 
-            <h1 class="text-center"> Employee Payroll</h1>
+            <div class="header-content header">
+    <div class="logo">
+        <h1 class="class="text-center"><img src="~/assets/Project_Images/logo.png">Employee Payroll</h1>
+    </div>
+    </div>
 
 
         <table class="table">
@@ -12,10 +16,19 @@
                     @Html.DisplayNameFor(model => model.Emp_name)
                 </th>
                 <th>
+                @Html.DisplayNameFor(model => model.Profile_img)
+                </th>
+                <th>
                     @Html.DisplayNameFor(model => model.Gender)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Department)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Salary)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StartDate)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Notes)
@@ -33,18 +46,27 @@
                          @Html.DisplayFor(modelItem => item.Emp_name)
                      </td>
                      <td>
-                         @Html.DisplayFor(modelItem => item.Gender)
-                     </td>
-                     <td>
-                         @Html.DisplayFor(modelItem => item.Department)
-                     </td>
-                     <td>
-                         @Html.DisplayFor(modelItem => item.Notes)
-                     </td>
+                        <img src="@Url.Content(item.Profile_img)"/>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Gender)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Department)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Salary)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StartDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Notes)
+                    </td>
                      <td>
                          <div>
                               <a onclick="showInPopup('@Url.Action("AddEmployee","Employee",new {id=item.Emp_id},Context.Request.Scheme)','Update Employee')" class="btn btn-info text-white"><i class="fas fa-pencil-alt" ></i> Edit</a>
-                                <form asp-action="DeleteEmployee" asp-route-id="@item.Emp_id" onsubmit="return jQueryAjaxDelete(this)" class="d-inline">
+                                <form asp-action="DeleteEmployee" asp-route-id="@item.Emp_id" onsubmit="return jQueryAjaxDelete(this);"class="d-inline">
                                    <input type="hidden" asp-for="@item.Emp_id" />
                                    <input type="submit" value="Delete" class="btn btn-danger" />
                                 </form>
@@ -55,4 +77,4 @@
          </tbody>
          </table>
     </div>
-    11``1
+    

@@ -38,7 +38,7 @@ namespace EmpAjaxQuery.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AddEmployee(int id, [Bind("Emp_id,Emp_name,Gender,Department,Notes")] EmployeeModel emps)
+        public async Task<IActionResult> AddEmployee(int id, [Bind("Emp_id,Emp_name,Profile_img,Gender,Department,Salary,StartDate,Notes")] EmployeeModel emps)
         {
             if (ModelState.IsValid)
             {
